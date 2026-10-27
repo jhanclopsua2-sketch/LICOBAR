@@ -1,0 +1,47 @@
+[
+    {
+        "id": "user_admin_001",
+        "nombre": "Administrador Demo",
+        "email": "admin@demo.com",
+        "password": "admin123",
+        "fechaRegistro": "2024-01-15T10:00:00.000Z",
+        "avatar": "A",
+        "rol": "admin"
+    },
+    {
+        "id": "user_juan_002",
+        "nombre": "Juan Pérez",
+        "email": "juan@demo.com",
+        "password": "juan12345",
+        "fechaRegistro": "2024-02-20T14:30:00.000Z",
+        "avatar": "J",
+        "rol": "usuario"
+    },
+    {
+        "id": "user_maria_003",
+        "nombre": "María González",
+        "email": "maria@demo.com",
+        "password": "maria12345",
+        "fechaRegistro": "2024-03-10T09:15:00.000Z",
+        "avatar": "M",
+        "rol": "usuario"
+    },
+    {
+        "id": "user_carlos_004",
+        "nombre": "Carlos Ramírez",
+        "email": "carlos@demo.com",
+        "password": "carlos123",
+        "fechaRegistro": "2024-04-05T16:45:00.000Z",
+        "avatar": "C",
+        "rol": "usuario"
+    },
+    {
+        "id": "user_ana_005",
+        "nombre": "Ana Martínez",
+        "email": "ana@demo.com",
+        "password": "ana123456",
+        "fechaRegistro": "2024-05-12T11:20:00.000Z",
+        "avatar": "A",
+        "rol": "usuario"
+    }
+]

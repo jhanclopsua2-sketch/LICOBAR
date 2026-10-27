@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LICOBAR UI | Dashboard</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="dashboard-body">
+    <!-- ============================================================
+         BARRA SUPERIOR DE NAVEGACIÓN (negra con acento rojo + logo)
+         ============================================================ -->
+    <nav class="navbar">
+        <!-- Logo de la marca: logo.jpg + texto "LICOBAR UI" -->
+        <div class="navbar-brand">
+            <!-- 🆕 Logo: intenta logo.jpg primero, luego logo.png como respaldo -->
+            <img src="img/logo.jpg" alt="Logo LICOBAR UI" class="navbar-logo-img"
+                 onerror="this.onerror=null; this.src='img/logo.png'; this.onerror=function(){this.style.display='none'; document.getElementById('navbar-logo-fallback').style.display='flex';};">
+            <div id="navbar-logo-fallback" class="navbar-logo-fallback" style="display:none;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M5 22h14"></path>
+                    <path d="M5 2h14"></path>
+                    <path d="M17 22v-4.172a2 2 0 0 0-.586-1.414L12 12l-4.414 4.414A2 2 0 0 0 7 17.828V22"></path>
+                    <path d="M7 2v4.172a2 2 0 0 0 .586 1.414L12 12l4.414-4.414A2 2 0 0 0 17 6.172V2"></path>
+                </svg>
+            </div>
+            <span>LICOBAR UI</span>
+        </div>
+
+        <!-- Sección derecha: avatar + nombre + logout -->
+        <div class="navbar-user">
+            <!-- Avatar clickeable: abre el modal de información de cuenta -->
+            <div class="user-avatar" id="user-avatar"
+                 onclick="abrirModalUsuario()"
+                 title="Ver información de cuenta"
+                 role="button"
+                 tabindex="0"
+                 aria-label="Ver información de cuenta">
+                U
+            </div>
+            <span id="user-name">Usuario</span>
+            <button class="btn-logout" onclick="cerrarSesion()">Cerrar Sesión</button>
+        </div>
+    </nav>
+
+    <!-- ============================================================
+         CONTENIDO PRINCIPAL DEL DASHBOARD
+         ============================================================ -->
+    <main class="dashboard-content">
+        <!-- Tarjeta de bienvenida con datos del usuario logueado -->
+        <div class="welcome-card">
+            <div class="welcome-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="12" cy="7" r="4"></circle>
+                </svg>
+            </div>
+            <h1>¡Bienvenido, <span id="welcome-name">Usuario</span>!</h1>
+            <p>Has iniciado sesión correctamente en tu panel de gestión de licores.</p>
+            <p class="session-info">Sesión activa desde: <span id="session-time">--</span></p>
+        </div>
+
+        <!-- Grid de tarjetas de secciones (Catálogo, Pedidos, Inventario) -->
+        <div class="info-grid">
+            <!-- Tarjeta 1: Catálogo -->
+            <div class="info-card">
+                <div class="info-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M9 2v6h6V2"></path>
+                        <path d="M3 8h18l-2 12H5L3 8z"></path>
+                    </svg>
+                </div>
+                <h3>Catálogo</h3>
+                <p>Navega por nuestra selección de bebidas y licores. Filtra y busca productos específicos para encontrar justo lo que necesitas.</p>
+                <button class="info-btn" onclick="alert('Sección Catálogo en desarrollo')">Explorar Catálogo</button>
+            </div>
+
+            <!-- Tarjeta 2: Pedidos -->
+            <div class="info-card">
+                <div class="info-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+                        <line x1="3" y1="6" x2="21" y2="6"></line>
+                        <path d="M16 10a4 4 0 0 1-8 0"></path>
+                    </svg>
+                </div>
+                <h3>Pedidos</h3>
+                <p>Consulta el estado de tus pedidos recientes y revisa tu historial completo de compras realizadas.</p>
+                <button class="info-btn" onclick="alert('Sección Pedidos en desarrollo')">Ver Pedidos</button>
+            </div>
+
+            <!-- Tarjeta 3: Inventario -->
+            <div class="info-card">
+                <div class="info-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+                        <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+                        <line x1="12" y1="22.08" x2="12" y2="12"></line>
+                    </svg>
+                </div>
+                <h3>Inventario</h3>
+                <p>Gestiona los niveles de stock, productos disponibles y proveedores. Mantén tu inventario siempre actualizado.</p>
+                <button class="info-btn" onclick="alert('Sección Inventario en desarrollo')">Gestionar</button>
+            </div>
+        </div>
+    </main>
+
+    <!-- ============================================================
+         MODAL DE INFORMACIÓN DE CUENTA
+         Se abre al hacer clic en el avatar del usuario.
+         ============================================================ -->
+    <div class="modal-overlay" id="modal-usuario" onclick="cerrarModalSiClicFuera(event)">
+        <div class="modal-container">
+            <button class="modal-close" onclick="cerrarModalUsuario()" aria-label="Cerrar modal">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+
+            <div class="modal-header">
+                <div class="modal-avatar" id="modal-avatar">U</div>
+                <h2 id="modal-nombre">Usuario</h2>
+                <p id="modal-email">usuario@correo.com</p>
+            </div>
+
+            <div class="modal-body">
+                <h3 class="modal-section-title">Información de la Cuenta</h3>
+
+                <div class="modal-info-row">
+                    <span class="modal-label">Nombre completo</span>
+                    <span class="modal-value" id="modal-full-name">--</span>
+                </div>
+
+                <div class="modal-info-row">
+                    <span class="modal-label">Correo electrónico</span>
+                    <span class="modal-value" id="modal-full-email">--</span>
+                </div>
+
+                <div class="modal-info-row">
+                    <span class="modal-label">ID de usuario</span>
+                    <span class="modal-value modal-value-mono" id="modal-user-id">--</span>
+                </div>
+
+                <h3 class="modal-section-title">Datos de Sesión</h3>
+
+                <div class="modal-info-row">
+                    <span class="modal-label">Inicio de sesión</span>
+                    <span class="modal-value" id="modal-session-start">--</span>
+                </div>
+
+                <div class="modal-info-row">
+                    <span class="modal-label">Tipo de sesión</span>
+                    <span class="modal-value" id="modal-session-type">--</span>
+                </div>
+
+                <div class="modal-info-row">
+                    <span class="modal-label">Tiempo de sesión</span>
+                    <span class="modal-value" id="modal-session-duration">--</span>
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <button class="btn-logout modal-logout" onclick="cerrarSesion()">Cerrar Sesión</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', inicializarDashboard);
+        document.addEventListener('keydown', cerrarModalConESC);
+    </script>
+</body>
+</html>
